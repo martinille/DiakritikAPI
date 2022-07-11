@@ -1,8 +1,6 @@
 <?php
 namespace DiakritikAPI;
 
-ini_set('display_errors', false);
-
 $testValues = [
 	true,
 	false,
@@ -18,17 +16,16 @@ $testValues = [
 	'KRDEL STASTNYCH DATLOV UCI PRI USTI VAHU MLKVEHO KONA OBHRYZAT KORU A ZRAT CERSTVE MASO.',
 	'Kupili sme si novy byt.',
 	'Byt, ci nebyt.',
-	'
-<!doctype html>
-<html lang="sk">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8">
-	<title>...</title>
-	<style>...</style>
-</head>
-<body>...</body>
-</html>',
+	'<!doctype html>
+		<html lang="sk">
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<meta charset="utf-8">
+			<title>...</title>
+			<style>...</style>
+		</head>
+		<body>...</body>
+		</html>',
 ];
 
 require_once 'diakritikApi.class.php';
@@ -43,9 +40,7 @@ function printTest($input) {
 	if (is_string($input)) {
 		$input = trim(htmlspecialchars($input));
 	}
-	if (is_string($output)) {
-		$output = trim(htmlspecialchars($output));
-	}
+	$output = trim(htmlspecialchars($output));
 	echo "<tr><td><em>$typeInput:</em> " . var_export($input, true) . "</td><td><em>$typeOutput:</em> " . var_export($output, true) . "</td></tr>";
 }
 ?>

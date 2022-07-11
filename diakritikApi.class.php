@@ -27,22 +27,28 @@ class DiakritikAPI {
 	 */
 	public function doplnDiakritiku($text, string $method = self::METHOD_4GRAM): string {
 		try {
+			if (!in_array(gettype($text), ['string','integer'])) {
+				throw new DiakritikAPI_Exception("Invalid input.");
+			}
+
 			$data = $this->file_get_contents_ssl($this->webURL, [
-				'text'   => (string)$text,
-				'method' => (string)$method,
+				'text'   => $text,
+				'method' => $method,
 			]);
 
 			$dom = new \DOMDocument();
 			$dom->loadHTML($data, LIBXML_BIGLINES | LIBXML_NOBLANKS | LIBXML_NOCDATA | LIBXML_NSCLEAN | LIBXML_PARSEHUGE);
 
 			if ($dom->getElementsByTagName("div")->count() != 3) {
-				throw new DiakritikAPI_Exception("Invalid input.");
+				throw new DiakritikAPI_Exception("Invalid input or service not available.");
 			}
 
 			return trim($dom->getElementsByTagName("div")->item(1)->nodeValue);
 		}
 		catch (DiakritikAPI_Exception $e) {
-			trigger_error($e->getMessage(), E_USER_NOTICE);
+			// optional
+			// trigger_error($e->getMessage(), E_USER_NOTICE);
+
 			return false;
 		}
 	}
@@ -50,7 +56,7 @@ class DiakritikAPI {
 
 
 	/**
-	 * Nacita subor alebo secure-URL  (https://...)
+	 * Load secure-URL  (https://...)
 	 *
 	 * @param string $url
 	 * @param array $post
