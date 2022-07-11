@@ -1,5 +1,5 @@
 # DiakritikAPI - nástroj na rekonštrukciu diakritiky
-**PHP trieda, pomocou ktorej môžete dopĺňať diakritiku v textoch.** Využíva pri tom nástroj [Diakritik](https://diakritik.juls.savba.sk/) z dielne [Jazykovedného ústavu Ľudovíta Štúra Slovenskej akadémie vied](https://www.juls.savba.sk/).
+**PHP trieda, pomocou ktorej môžete dopĺňať alebo odstraňovať diakritiku v textoch.** Využíva pri tom nástroj [Diakritik](https://diakritik.juls.savba.sk/) z dielne [Jazykovedného ústavu Ľudovíta Štúra Slovenskej akadémie vied](https://www.juls.savba.sk/).
 
 
 ## Požiadavky
