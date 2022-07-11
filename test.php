@@ -1,5 +1,5 @@
 <?php
-namespace DiakritikAPI;
+use DiakritikAPI\DiakritikAPI;
 
 $testValues = [
 	true,
