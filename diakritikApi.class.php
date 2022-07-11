@@ -2,33 +2,6 @@
 
 namespace DiakritikAPI;
 
-
-if (!function_exists('d')) {
-	function d($var, $exit = 0): void {
-		$backtrace = debug_backtrace();
-		echo "<p><b>{$backtrace[0]['file']}:{$backtrace[0]['line']}</b></p>";
-
-		echo "<pre>";
-		print_r($var);
-		echo "</pre>";
-		if ($exit) exit();
-	}
-}
-
-if (!function_exists('e')) {
-	function e($var,$exit=0): void {
-		$backtrace = debug_backtrace();
-		echo "<p><b>{$backtrace[0]['file']}:{$backtrace[0]['line']}</b></p>";
-
-		echo "<pre>";
-		var_export($var);
-		echo "</pre>";
-		if($exit) exit();
-	}
-}
-
-
-
 class DiakritikAPI {
 	public const METHOD_FIRST      = 'first';
 	public const METHOD_RANDOM     = 'random';
@@ -52,11 +25,11 @@ class DiakritikAPI {
 	 * @param string $method
 	 * @return string|false
 	 */
-	public function doplnDiakritiku(string $text, string $method = self::METHOD_6GRAM): string {
+	public function doplnDiakritiku($text, string $method = self::METHOD_4GRAM): string {
 		try {
 			$data = $this->file_get_contents_ssl($this->webURL, [
-				'text'   => $text,
-				'method' => $method,
+				'text'   => (string)$text,
+				'method' => (string)$method,
 			]);
 
 			$dom = new \DOMDocument();
@@ -69,7 +42,7 @@ class DiakritikAPI {
 			return trim($dom->getElementsByTagName("div")->item(1)->nodeValue);
 		}
 		catch (DiakritikAPI_Exception $e) {
-			//trigger_error($e->getMessage(), E_USER_NOTICE);
+			trigger_error($e->getMessage(), E_USER_NOTICE);
 			return false;
 		}
 	}

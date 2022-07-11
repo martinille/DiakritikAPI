@@ -1,10 +1,12 @@
 <?php
 namespace DiakritikAPI;
 
-require_once 'diakritikApi.class.php';
-
+ini_set('display_errors', false);
 
 $testValues = [
+	true,
+	false,
+	null,
 	0,
 	1,
 	12345,
@@ -29,16 +31,22 @@ $testValues = [
 </html>',
 ];
 
+require_once 'diakritikApi.class.php';
+
 $diakritik = new DiakritikAPI();
 
 function printTest($input) {
 	global $diakritik;
 	$output     = $diakritik->doplnDiakritiku($input);
-	$typeInput  = gettype($input);
-	$typeOutput = gettype($output);
-	$input      = trim(htmlspecialchars($input));
-	$output     = trim(htmlspecialchars($output));
-	echo "<tr><td><em>$typeInput:</em> " . print_r($input, true) . "</td><td><em>$typeOutput:</em> " . print_r($output, true) . "</td></tr>";
+	$typeInput  = strtolower(gettype($input));
+	$typeOutput = strtolower(gettype($output));
+	if (is_string($input)) {
+		$input = trim(htmlspecialchars($input));
+	}
+	if (is_string($output)) {
+		$output = trim(htmlspecialchars($output));
+	}
+	echo "<tr><td><em>$typeInput:</em> " . var_export($input, true) . "</td><td><em>$typeOutput:</em> " . var_export($output, true) . "</td></tr>";
 }
 ?>
 
