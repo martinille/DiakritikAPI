@@ -22,7 +22,7 @@ $text = "Krdel stastnych datlov uci kona zrat maso."
 echo $diakritik->doplnDiakritiku($text);
 // Vystup: 
 // Kŕdeľ šťastných ďatľov učí koňa žrať mäso.
-```	
+```
 	
 Metóda `doplnDiakritiku(..)` má aj druhý argument `$method`, kde môže byť jedna z nasledovných konštánt:
 
