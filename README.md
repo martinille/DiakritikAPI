@@ -10,19 +10,19 @@
 ## Použitie
 
 
-    
-	use DiakritikAPI\DiakritikAPI;
-	
-	require_once 'diakritikApi.class.php';  
-	
-	$diakritik = new DiakritikAPI();
+```php    
+use DiakritikAPI\DiakritikAPI;
 
-	$text = "Krdel stastnych datlov uci kona zrat maso."
-	
-	echo $diakritik->doplnDiakritiku($text);
-	// Vystup: 
-	// Kŕdeľ šťastných ďatľov učí koňa žrať mäso.
-	
+require_once 'diakritikApi.class.php';  
+
+$diakritik = new DiakritikAPI();
+
+$text = "Krdel stastnych datlov uci kona zrat maso."
+
+echo $diakritik->doplnDiakritiku($text);
+// Vystup: 
+// Kŕdeľ šťastných ďatľov učí koňa žrať mäso.
+```	
 	
 Metóda `doplnDiakritiku(..)` má aj druhý argument `$method`, kde môže byť jedna z nasledovných konštánt:
 
