@@ -10,6 +10,7 @@
 ## Použitie
 
     <?php  
+    
 	namespace DiakritikAPI;
 	require_once 'diakritikApi.class.php';  
 	$diakritik = new DiakritikAPI();
@@ -18,7 +19,7 @@
 	echo $diakritik->doplnDiakritiku($text);
 	// Vystup: 
 	// Kŕdeľ šťastných ďatľov učí koňa žrať mäso.
-	?>
+	
 Metóda `doplnDiakritiku(..)` má aj druhý argument `$method`, kde môže byť jedna z nasledovných konštánt:
 
 - DiakritikAPI::**METHOD_FIRST** 
