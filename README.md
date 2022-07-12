@@ -38,7 +38,7 @@ Metóda `doplnDiakritiku(..)` má aj druhý argument `$method`, kde môže byť 
 - DiakritikAPI::**METHOD_MAXIMALIST**
 - DiakritikAPI::**METHOD_REMOVE**
 
-Tieto konštanty (metódy) určujú, akým spôsobom sa bude v texte dopĺňať diakritika. S výnimkou METHOD_REMOVE, ktorá odstraňuje diakritiku, sú všetky popísané na stránke [Slovenského národného korpusu](https://korpus.juls.savba.sk/diakritik.html).
+Tieto konštanty (metódy) určujú, akým spôsobom sa bude v texte dopĺňať diakritika. S výnimkou METHOD_REMOVE, ktorá odstraňuje diakritiku, sú všetky popísané na stránke [Jazykovedného ústavu Ľ. Štúra SAV](https://www.juls.savba.sk/diakritik.html).
 
 ## Test
 Použitá metóda **4GRAM**.
